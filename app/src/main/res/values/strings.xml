@@ -1,0 +1,39 @@
+<resources>
+    <!--Nombre de la aplicación-->
+    <string name="app_name">Dixit</string>
+
+    <!--Main Activity-->
+    <string name="About">Acerca de ...</string>
+    <string name="Play">Jugar</string>
+    <string name="Settings">Configuración</string>
+    <string name="Scores">Ranking</string>
+    <string name="TituloM">Juego de cartas Dixit</string>
+    <string name="Instrucciones">Instrucciones</string>
+
+    <!--Credits Activity-->
+    <string name="TituloC">Créditos</string>
+    <string name="Names">Autores del juego:</string>
+
+
+    <!--Configurar Partida Activity-->
+    <string name="TituloP">Iniciar partida</string>
+    <string name="numPlayers">Num. de jugadores</string>
+
+    <!--Partida Activity-->
+    <string name="TituloPartida">Jugando</string>
+    <string name="InitCard">Elegir Carta Inicial</string>
+    <string name="Barajar">Barajar</string>
+    <string name="SelectCard">Seleccionar Carta</string>
+
+    <!--Settings Activity-->
+    <string name="TituloS">Configuración</string>
+
+
+    <!--Cards Activity-->
+    <string name="TituloCards">Cartas</string>
+    <string name="insertCard">Insertar carta</string>
+    <string name="infoCard">Info carta</string>
+    <string name="deleteCard">Borrar carta</string>
+    <string name="editCard">Editar carta</string>
+
+</resources>
