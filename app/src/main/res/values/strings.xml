@@ -8,7 +8,7 @@
     <string name="Settings">Configuración</string>
     <string name="Scores">Ranking</string>
     <string name="TituloM">Juego de cartas Dixit</string>
-    <string name="Instrucciones">Instrucciones</string>
+    <string name="Instructions">Reglas</string>
 
     <!--Credits Activity-->
     <string name="TituloC">Créditos</string>
@@ -35,5 +35,7 @@
     <string name="infoCard">Info carta</string>
     <string name="deleteCard">Borrar carta</string>
     <string name="editCard">Editar carta</string>
+    <string name="title_activity_rules">RulesActivity</string>
+    <string name="title_activity_scores">ScoresActivity</string>
 
 </resources>

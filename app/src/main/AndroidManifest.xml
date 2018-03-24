@@ -19,7 +19,9 @@
         <activity android:name=".Activities.CreditsActivity" />
         <activity android:name=".Activities.CardsActivity" />
         <activity android:name=".Activities.PlayActivity" />
-        <activity android:name=".Activities.SettingsActivity"></activity>
+        <activity android:name=".Activities.SettingsActivity" />
+        <activity android:name=".Activities.RulesActivity" />
+        <activity android:name=".Activities.ScoresActivity"></activity>
     </application>
 
 </manifest>
