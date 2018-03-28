@@ -9,10 +9,16 @@
     <string name="Scores">Ranking</string>
     <string name="TituloM">Juego de cartas Dixit</string>
     <string name="Instructions">Reglas</string>
+    <string name="Credits">Créditos</string>
 
     <!--Credits Activity-->
     <string name="TituloC">Créditos</string>
     <string name="Names">Autores del juego:</string>
+    <string name="Juanjo">Juanjo</string>
+    <string name="Alberto">Alberto</string>
+    <string name="Carlos">Carlos</string>
+    <string name="David">David</string>
+
 
 
     <!--Configurar Partida Activity-->
