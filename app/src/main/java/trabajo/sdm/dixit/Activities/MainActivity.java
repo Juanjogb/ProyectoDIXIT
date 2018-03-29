@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, SettingsActivity.class);
                 break;
             */
+
+            case R.id.bCards:
+                intent = new Intent(this, CardsActivity.class);
+                break;
         }
 
         // Launch the required activity
