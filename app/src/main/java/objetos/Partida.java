@@ -1,7 +1,13 @@
 package objetos;
 
 public class Partida {
-    int idPartida;
-    int numJugadores;
-    int[] posicionJugadores;
+    private int idPartida;
+    private int numJugadores;
+    private int[] posicionJugadores;
+
+    public Partida() {
+
+    }
+
+
 }

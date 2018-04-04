@@ -20,7 +20,6 @@
     <string name="David">David</string>
 
 
-
     <!--Configurar Partida Activity-->
     <string name="TituloP">Iniciar partida</string>
     <string name="numPlayers">Num. de jugadores</string>
@@ -33,6 +32,8 @@
 
     <!--Settings Activity-->
     <string name="TituloS">Configuración</string>
+    <string name="ini_user">Iniciar Sesión</string>
+    <string name="reg_user">Registrar</string>
 
     <!--Scores Activity-->
     <string name="local">Local</string>
