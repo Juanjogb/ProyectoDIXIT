@@ -7,7 +7,7 @@
     tools:context="trabajo.sdm.dixit.Activities.CardsActivity">
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+        android:id="@+id/viewPagerCards"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
