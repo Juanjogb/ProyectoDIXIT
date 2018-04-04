@@ -6,7 +6,7 @@
     <string name="About">Acerca de ...</string>
     <string name="Play">Jugar</string>
     <string name="Settings">Configuración</string>
-    <string name="Scores">Ranking</string>
+    <string name="Scores">Scores</string>
     <string name="TituloM">Juego de cartas Dixit</string>
     <string name="Instructions">Reglas</string>
     <string name="Credits">Créditos</string>
@@ -33,6 +33,12 @@
 
     <!--Settings Activity-->
     <string name="TituloS">Configuración</string>
+
+    <!--Scores Activity-->
+    <string name="local">Local</string>
+    <string name="localScores">Here are the local scores</string>
+    <string name="friends">Friends</string>
+    <string name="friendsScores">Here are your friends\' scores</string>
 
 
     <!--Cards Activity-->
