@@ -18,13 +18,69 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.CreditsActivity" />
+
+        <!--Credits activity-->
+        <!--Enable up navigation-->
+        <activity android:name=".Activities.CreditsActivity"
+            android:parentActivityName=".Activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"
+                />
+        </activity>
+
+        <!--Cards activity-->
+        <!--Enable up navigation-->
         <activity android:name=".Activities.CardsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.PlayActivity" />
-        <activity android:name=".Activities.SettingsActivity" />
-        <activity android:name=".Activities.RulesActivity" />
-        <activity android:name=".Activities.ScoresActivity"></activity>
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"
+                />
+        </activity>
+
+        <!--Play activity-->
+        <!--Enable up navigation-->
+        <activity android:name=".Activities.PlayActivity"
+            android:parentActivityName=".Activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"
+            />
+        </activity>
+
+        <!--Settings activity-->
+        <!--Enable up navigation-->
+        <activity android:name=".Activities.SettingsActivity"
+            android:parentActivityName=".Activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"
+            />
+        </activity>
+
+        <!--Rules activity-->
+        <!--Enable up navigation-->
+        <activity android:name=".Activities.RulesActivity"
+            android:parentActivityName=".Activities.MainActivity">
+             <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"
+            />
+        </activity>
+
+        <!--Scores activity-->
+        <!--Enable up navigation-->
+        <activity android:name=".Activities.ScoresActivity"
+            android:parentActivityName=".Activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"
+            />
+        </activity>
+
+
     </application>
 
 </manifest>
