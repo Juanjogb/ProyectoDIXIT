@@ -1,171 +1,111 @@
 package trabajo.sdm.dixit.Activities;
 
-import android.app.ProgressDialog;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.provider.MediaStore;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+import android.widget.ImageButton;
 
 import trabajo.sdm.dixit.R;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
+public class SettingsActivity extends AppCompatActivity {
 
-    private Button bReg;
-    private Button bIni;
-    private EditText emailText, passText;
-    private ProgressDialog progressDialog;
+    private ImageButton avatar = null;
 
-    //FirebaseAuth.AuthStateListener mAuthListener;
+    static final int ACTION_AVATAR_PHOTO = 1;
+    static final int ACTION_AVATAR_GALLERY = 2;
 
-    //Declaramos un objeto firebaseAuth
-    private FirebaseAuth firebaseAuth;
+    private SharedPreferences preferences = null;
+    static final String AVATAR = "avatar";
+    static final String NAME = "name";
+    static final String YEARS = "age";
+    static final String SEX = "sex";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-
-        //Referenciamos los views y los botones
-        bIni = findViewById(R.id.bIni);
-        bReg = findViewById(R.id.bReg);
-        emailText = findViewById(R.id.editTextEmail);
-        passText = findViewById(R.id.editTextPass);
-
-        //listener de los botones
-        bIni.setOnClickListener(this);
-        bReg.setOnClickListener(this);
-
-        //inicializamos el objeto firebaseAuth
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        progressDialog = new ProgressDialog(this);
-        /*mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Log.i("SESION", "sesion iniciada con email : " + user.getEmail());
-                    setContentView(R.layout.activity_sesion);
-                }else{
-                    Log.i("SESION", "sesion cerrada");
-                }
+        avatar = (ImageButton) findViewById(R.id.butAvatarImage);
+        avatar.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0) {
+                showPhotoDialog();
             }
-        };*/
-    }
-
-
-    public void registrar(){
-
-        //Obtenemos el email y la contraseña desde las cajas de texto
-        String email = emailText.getText().toString().trim();
-        String password  = passText.getText().toString().trim();
-
-        //Verificamos que las cajas de texto no esten vacías
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Se debe ingresar un email",Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Falta ingresar la contraseña",Toast.LENGTH_LONG).show();
-            return;
-        }
-
-
-        progressDialog.setMessage("Realizando registro en linea...");
-        progressDialog.show();
-
-        //Creando nuevo usuario
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        //checking if success
-                        if(task.isSuccessful()){
-
-                            Toast.makeText(SettingsActivity.this,"Se ha registrado el usuario con el email: "+ emailText.getText(),Toast.LENGTH_LONG).show();
-                            setContentView(R.layout.activity_sesion);
-                        }else{
-
-                            Toast.makeText(SettingsActivity.this,"No se pudo registrar el usuario ",Toast.LENGTH_LONG).show();
-                        }
-                        progressDialog.dismiss();
-                    }
-                });
-    }
-
-    public void iniciarSesion(){
-
-        //Obtenemos el email y la contraseña desde las cajas de texto
-        String email = emailText.getText().toString().trim();
-        String password  = passText.getText().toString().trim();
-
-        //Verificamos que las cajas de texto no esten vacías
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Se debe ingresar un email",Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Falta ingresar la contraseña",Toast.LENGTH_LONG).show();
-            return;
-        }
-
-
-        progressDialog.setMessage("Realizando inicio de sesión...");
-        progressDialog.show();
-
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                //checking if success
-                if(task.isSuccessful()){
-                    Toast.makeText(SettingsActivity.this,"Se ha iniciado sesion con el email: "+ emailText.getText(),Toast.LENGTH_LONG).show();
-                    setContentView(R.layout.activity_sesion);
-                }else{
-
-                    Toast.makeText(SettingsActivity.this,"No se pudo iniciar sesión ",Toast.LENGTH_LONG).show();
-                }
-                progressDialog.dismiss();
-            }
-
         });
+
+        //obtener las preferencias
+        preferences = getPreferences(0);
     }
 
+    public void showPhotoDialog(){
+        FragmentManager fm= getSupportFragmentManager();
+        PhotoSelectorDialog avatarDialog = new PhotoSelectorDialog();
+        avatarDialog.show(fm,"photo");
+    }
 
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.bIni :
-                //String emailIni = emailText.getText().toString();
-                //String passIni = passText.getText().toString();
-                iniciarSesion();
-                break;
-            case R.id.bReg :
-                //String emailReg = emailText.getText().toString();
-                //String passReg = passText.getText().toString();
-                registrar();
-                break;
+    public void avatarPhoto() {
+        Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(pictureIntent, ACTION_AVATAR_PHOTO);
+    }
+
+    public void avatarGallery() {
+        Intent pickPhoto = new Intent(Intent.ACTION_PICK);
+        pickPhoto.setType("image/*");
+        startActivityForResult(pickPhoto, ACTION_AVATAR_GALLERY);
+    }
+
+    protected  void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_CANCELED) {
+            //no hacer nada
+        }
+        else if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case ACTION_AVATAR_PHOTO:
+                    Bitmap cameraPic = (Bitmap) data.getExtras().get("data");
+                    saveAvatar(cameraPic);
+                    break;
+                case ACTION_AVATAR_GALLERY:
+                    Uri photoUri = data.getData();
+                    try{
+                        Bitmap galleryPic = MediaStore.Images.Media.getBitmap(getContentResolver(),photoUri);
+                        saveAvatar(galleryPic);
+                    } catch (Exception e){
+                        new AlertDialog.Builder(this).setMessage("ERROR: "+ e.getLocalizedMessage()).setPositiveButton(android.R.string.ok, null).show();
+                    }
+                    break;
+            }
         }
     }
 
-    /*protected void onStart() {
-        super.onStart();
-        FirebaseAuth.getInstance().addAuthStateListener(mAuthListener);
+    private void saveAvatar(Bitmap bitmap) {
+        ImageButton avatar = (ImageButton) findViewById(R.id.butAvatarImage);
+        avatar.setImageBitmap(bitmap);
+    }
+
+    public void avatarDefault(){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.remove(AVATAR);
+        editor.commit();
+        setAvatar();
+    }
+
+    private void setAvatar() {
+        String uriString = preferences.getString(AVATAR,"android.resource://trabajo.sdm.dixit/" + R.drawable.ava4);
+        avatar.setImageURI(Uri.parse(uriString));
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        if(mAuthListener != null)
-            FirebaseAuth.getInstance().removeAuthStateListener(mAuthListener);
-    }*/
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor edit = preferences.edit();
+        //EditText ed = (EditText) findViewById(R.id.nJug);
+    }
 }

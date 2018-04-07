@@ -4,12 +4,14 @@
 
     <!--Main Activity-->
     <string name="About">Acerca de ...</string>
-    <string name="Play">Jugar</string>
+    <string name="Player">Un jugador</string>
+    <string name="Online">Multijugador</string>
     <string name="Settings">Configuración</string>
-    <string name="Scores">Scores</string>
+    <string name="Scores">Puntuación</string>
     <string name="TituloM">Juego de cartas Dixit</string>
     <string name="Instructions">Reglas</string>
     <string name="Credits">Créditos</string>
+    <string name="Cards">Cartas</string>
 
     <!--Credits Activity-->
     <string name="TituloC">Créditos</string>
@@ -19,36 +21,62 @@
     <string name="Carlos">Carlos</string>
     <string name="David">David</string>
 
+    <!--Online Activity-->
+    <string name="TituloOnline">Partida Multijugador</string>
 
-    <!--Configurar Partida Activity-->
-    <string name="TituloP">Iniciar partida</string>
-    <string name="numPlayers">Num. de jugadores</string>
+    <!--User Activity-->
+    <string name="TituloUser">Configurar jugador online</string>
 
     <!--Partida Activity-->
-    <string name="TituloPartida">Jugando</string>
+    <string name="TituloPartida">Iniciar partida</string>
+    <string name="nombre">Nombre del jugador:</string>
+    <string name="numPlayers">Num. de jugadores:</string>
+    <string name="numRondas">Num. de rondas:</string>
+    <string name="maxPuntos">Máxima puntuación:</string>
+    <string name="botonPlay">Empezar partida</string>
+    <string name="nombreText">Nombre</string>
+    <string name="numJugadores">4</string>
+    <string name="numRondasText">5</string>
+    <string name="maxPuntosText">30</string>
+
+    <!--Play Activity-->
+    <string name="TituloPlay">Jugando partida Dixit</string>
     <string name="InitCard">Elegir Carta Inicial</string>
     <string name="Barajar">Barajar</string>
     <string name="SelectCard">Seleccionar Carta</string>
 
     <!--Settings Activity-->
-    <string name="TituloS">Configuración</string>
+    <string name="TituloS">Configuración del juego</string>
+    <string name="selecAvatar">Selección de avatar:</string>
+    <string name="selecAvatarCamara">Cámara</string>
+    <string name="selecAvatardefault">Por defecto</string>
+    <string name="selecAvatarGaleria">Galería</string>
+    <string name="selecAvatarCancel">Cancelar</string>
+    <string name="nomJugador">Nombre del jugador</string>
+    <string name="reproMusica">Reproducir sonido</string>
+    <string name="mostrarPuntos">Ver puntos</string>
+    <string name="reversoBaraja">Reverso de la baraja</string>
+
+
     <string name="ini_user">Iniciar Sesión</string>
     <string name="reg_user">Registrar</string>
 
     <!--Scores Activity-->
+    <string name="TituloScores">Puntuaciones y logros</string>
     <string name="local">Local</string>
     <string name="localScores">Here are the local scores</string>
     <string name="friends">Friends</string>
     <string name="friendsScores">Here are your friends\' scores</string>
 
+    <!--Rules Activity-->
+    <string name="TituloReglas">Instrucciones del juego</string>
+
 
     <!--Cards Activity-->
-    <string name="TituloCards">Cartas</string>
+    <string name="TituloCards">Cartas del juego</string>
     <string name="insertCard">Insertar carta</string>
     <string name="infoCard">Info carta</string>
     <string name="deleteCard">Borrar carta</string>
     <string name="editCard">Editar carta</string>
-    <string name="title_activity_rules">RulesActivity</string>
-    <string name="title_activity_scores">ScoresActivity</string>
 
 </resources>

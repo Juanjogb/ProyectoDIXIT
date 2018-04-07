@@ -52,8 +52,13 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
 
             // Activity for starting the game
-            case R.id.bPlay:
-                intent = new Intent(this, PlayActivity.class);
+            case R.id.bPlayer:
+                intent = new Intent(this, PartidaActivity.class);
+                break;
+
+            // Activity for register player
+            case R.id.bOnline:
+                intent = new Intent(this, OnlineActivity.class);
                 break;
 
             // Activity for showing score
@@ -76,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             */
 
+            //Activity for showing cards
             case R.id.bCards:
                 intent = new Intent(this, CardsActivity.class);
                 break;
