@@ -81,7 +81,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lineaHorizontal" />
+        app:layout_constraintTop_toTopOf="@+id/lineaHorizontal"
+        tools:ignore="OnClick" />
 
     <android.support.constraint.Guideline
         android:id="@+id/lineaHorizontal"
@@ -108,8 +109,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="@string/nombreText"
         android:inputType="textPersonName"
-        android:text="@string/nombreText"
+        android:maxLength="10"
+        android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -124,8 +127,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:text="4"
         android:inputType="number"
-        android:text="@string/numJugadores"
+        android:maxLength="1"
+        android:digits="0123456789"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/nombreText" />
@@ -141,7 +146,9 @@
         android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/numRondasText"
+        android:maxLength="2"
+        android:text="5"
+        android:digits="0123456789"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/numJugadoresText" />
@@ -158,7 +165,9 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number"
-        android:text="@string/maxPuntosText"
+        android:maxLength="3"
+        android:digits="0123456789"
+        android:text="30"
         app:layout_constraintBottom_toTopOf="@+id/lineaHorizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"

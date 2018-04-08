@@ -73,11 +73,10 @@
         android:layout_width="362dp"
         android:layout_height="44dp"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:text="@string/reversoBaraja"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/verPuntos"
-        app:layout_constraintVertical_bias="0.107"
-        tools:text="@string/reversoBaraja" />
+        app:layout_constraintVertical_bias="0.107" />
 </android.support.constraint.ConstraintLayout>
