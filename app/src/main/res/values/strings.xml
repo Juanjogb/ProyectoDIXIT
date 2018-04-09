@@ -23,9 +23,22 @@
 
     <!--Online Activity-->
     <string name="TituloOnline">Partida Multijugador</string>
+    <string name="nick">Nombre del jugador (Nick)</string>
+    <string name="email">email</string>
+    <string name="password">password (longitud >=6) </string>
 
     <!--User Activity-->
     <string name="TituloUser">Configurar jugador online</string>
+    <string name="Intro">Bienvenido </string>
+    <string name="nombreJ">Nombre jugador : </string>
+    <string name="puntos">Puntos totales : </string>
+    <string name="partidas">Partidas jugadas : </string>
+    <string name="changePass">Cambiar password :</string>
+    <string name="newGame">Id. nueva partida :</string>
+    <string name="searchGame">Buscar partida (id) :</string>
+    <string name="bcrear">Crear</string>
+    <string name="bsearchPlay">Buscar</string>
+    <string name="bchangePass">Cambiar</string>
 
     <!--Partida Activity-->
     <string name="TituloPartida">Iniciar partida</string>

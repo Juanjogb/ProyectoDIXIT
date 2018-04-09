@@ -104,10 +104,10 @@
         <!-- Enable up navigation -->
         <activity android:name=".Activities.UserActivity"
             android:label="@string/TituloUser"
-            android:parentActivityName=".Activities.MainActivity">
+            android:parentActivityName=".Activities.OnlineActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity" />
+                android:value=".Activities.OnlineActivity" />
         </activity>
 
         <!-- Partida activity -->
@@ -127,6 +127,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.SettingsActivity" />
+        </activity>
+
+        <activity android:name=".Activities.PhotoSelectorDialogOnline"
+            android:label="@string/TituloPartida"
+            android:parentActivityName=".Activities.UserActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.UserActivity" />
         </activity>
     </application>
 

@@ -45,6 +45,8 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+
+
         //obtener las preferencias
         preferences = getPreferences(0);
     }
