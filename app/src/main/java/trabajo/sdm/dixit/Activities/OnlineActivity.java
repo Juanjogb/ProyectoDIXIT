@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,9 +35,10 @@ public class OnlineActivity extends AppCompatActivity implements View.OnClickLis
     //Declaramos un objeto firebaseAuth
     private FirebaseAuth firebaseAuth;
 
+    //Referencia a la base de datos
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    //final DatabaseReference partidaOnlineRef = database.getReference(FirebaseReferences.PARTIDAS_ONLINE_REFERENCE);
-    final DatabaseReference refDatabase = database.getReference(FirebaseReferences.DIXIT_REFERENCE);
+    private DatabaseReference refDatabase = database.getReference(FirebaseReferences.DIXIT_REFERENCE);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +91,7 @@ public class OnlineActivity extends AppCompatActivity implements View.OnClickLis
         progressDialog.setMessage("Realizando registro en linea...");
         progressDialog.show();
 
-        Jugador jugador = new Jugador(null,email,password,nick,null,0,0);
+        final Jugador jugador = new Jugador(null,email,password,nick,null,0,0);
         refDatabase.child(FirebaseReferences.JUGADOR_REFERENCE).push().setValue(jugador);
 
         //Creando nuevo usuario
@@ -105,6 +107,7 @@ public class OnlineActivity extends AppCompatActivity implements View.OnClickLis
                             Bundle bolsa = new Bundle();
                             bolsa.putString("nickKey",nick);
                             intent.putExtras(bolsa);
+                            intent.putExtra("jugador",jugador);
                             startActivity(intent);
                             //setContentView(R.layout.activity_user);
                         }else{
@@ -148,11 +151,32 @@ public class OnlineActivity extends AppCompatActivity implements View.OnClickLis
             public void onComplete(@NonNull Task<AuthResult> task) {
                 //checking if success
                 if(task.isSuccessful()){
+
+
+
+                    /*refDatabase.child(FirebaseReferences.JUGADOR_REFERENCE).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Jugador jugador = dataSnapshot.getValue(Jugador.class);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                    */
+
+                    //NO FUNCIONA, QUIERO LEER LOS DATOS DE UN JUGADOR GUARDADOS EN LA BASE DE DATOS
+                    String jugador = refDatabase.child(FirebaseReferences.JUGADOR_REFERENCE).toString();
+                    Log.e("JUGADOR",jugador);
+
                     Toast.makeText(OnlineActivity.this,"Sesion iniciada",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(OnlineActivity.this,UserActivity.class);
                     Bundle bolsa = new Bundle();
                     bolsa.putString("nickKey",nick);
                     intent.putExtras(bolsa);
+                    intent.putExtra("jugador", jugador);
                     startActivity(intent);
                     //setContentView(R.layout.activity_user);
                 }else{

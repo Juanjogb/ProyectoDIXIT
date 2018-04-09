@@ -1,13 +1,14 @@
 package objetos;
 
-import android.widget.ImageButton;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Jugador {
+public class Jugador implements Parcelable{
     private String nombre;
     private String email;
     private String password;
     private String nick;
-    private ImageButton avatar;
+    private String avatar;
     private int puntos;
     private int partidasJugadas;
 
@@ -15,7 +16,7 @@ public class Jugador {
     public Jugador() {
     }
 
-    public Jugador(String nombre, String email, String password, String nick, ImageButton avatar, int puntos, int partidasJugadas) {
+    public Jugador(String nombre, String email, String password, String nick, String avatar, int puntos, int partidasJugadas) {
         this.nombre = nombre;
         this.email = email;
         this.password = password;
@@ -24,6 +25,28 @@ public class Jugador {
         this.puntos = puntos;
         this.partidasJugadas = partidasJugadas;
     }
+
+    protected Jugador(Parcel in) {
+        nombre = in.readString();
+        email = in.readString();
+        password = in.readString();
+        nick = in.readString();
+        avatar = in.readString();
+        puntos = in.readInt();
+        partidasJugadas = in.readInt();
+    }
+
+    public static final Creator<Jugador> CREATOR = new Creator<Jugador>() {
+        @Override
+        public Jugador createFromParcel(Parcel in) {
+            return new Jugador(in);
+        }
+
+        @Override
+        public Jugador[] newArray(int size) {
+            return new Jugador[size];
+        }
+    };
 
     public String getNombre() {
         return nombre;
@@ -57,11 +80,11 @@ public class Jugador {
         this.nick = nick;
     }
 
-    public ImageButton getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(ImageButton avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
@@ -79,5 +102,21 @@ public class Jugador {
 
     public void setPartidasJugadas(int partidasJugadas) {
         this.partidasJugadas = partidasJugadas;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nombre);
+        dest.writeString(email);
+        dest.writeString(password);
+        dest.writeString(nick);
+        dest.writeString(avatar);
+        dest.writeInt(puntos);
+        dest.writeInt(partidasJugadas);
     }
 }

@@ -27,7 +27,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
     private SharedPreferences preferences = null;
     static final String AVATAR = "avatar";
-    //String nickRecibido = extras.getString("nick");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +35,10 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
         Bundle extras = getIntent().getExtras();
         name = findViewById(R.id.nameUserText);
-        name.setText(extras.getString("nickKey"));
+        String s = extras.getString("nickKey");
+        name.setText(s);
         nick = findViewById(R.id.nomLabel);
-        nick.setText(extras.getString("nickKey"));
+        nick.setText(s);
         puntos = findViewById(R.id.puntosLabel);
         partidas = findViewById(R.id.partidasLabel);
 
