@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import trabajo.sdm.dixit.R;
 
@@ -18,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private ImageButton avatar = null;
     private int indice;
+    private Button nombre, sonido, puntos, reverso;
     static final int ACTION_AVATAR_PHOTO = 1;
     static final int ACTION_AVATAR_GALLERY = 2;
 
@@ -29,11 +32,17 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+
+        nombre= findViewById(R.id.nJug);
+        sonido= findViewById(R.id.musica);
+        puntos= findViewById(R.id.verPuntos);
+        reverso= findViewById(R.id.reversoB);
+
         avatar = (ImageButton) findViewById(R.id.butAvatarImage);
         avatar.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0) {
                 //showPhotoDialog();
-                intent = new Intent(getApplicationContext(), PhotoSelectorDialog.class);
+                intent = new Intent(getApplicationContext(), SelectAvatarSettings.class);
                 startActivity(intent);
                 getIntent().getIntExtra("num_avatar",indice);
                 //setAvatar(indice);
@@ -49,6 +58,25 @@ public class SettingsActivity extends AppCompatActivity {
 
         //obtener las preferencias
         preferences = getPreferences(0);
+    }
+
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.nJug:
+                Toast.makeText(this,"Inserte nombre del jugador : por implementar",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.musica:
+                Toast.makeText(this,"Activa/Desactiva el sonido : por implementar",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.verPuntos:
+                Toast.makeText(this,"Puntos ganados : por implementar",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.reversoB:
+                Intent intent = new Intent(this, SelectReversoBaraja.class);
+                startActivity(intent);
+                break;
+        }
     }
 
     /*public void showPhotoDialog(){

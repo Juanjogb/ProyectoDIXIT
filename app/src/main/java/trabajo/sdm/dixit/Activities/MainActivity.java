@@ -1,11 +1,13 @@
 package trabajo.sdm.dixit.Activities;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import trabajo.sdm.dixit.R;
 
@@ -15,6 +17,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button btn1 = findViewById(R.id.bPlayer);
+        Button btn2 = findViewById(R.id.bOnline);
+        Button btn3 = findViewById(R.id.bScores);
+
+        Typeface face = Typeface.createFromAsset(getAssets(),"fonts/jungle_fever.ttf");
+        btn1.setTypeface(face);
+        btn2.setTypeface(face);
+        btn3.setTypeface(face);
 
     }
 

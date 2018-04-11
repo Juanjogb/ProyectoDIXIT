@@ -3,9 +3,10 @@ package trabajo.sdm.dixit.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,10 +33,13 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-
+        /*
         Bundle extras = getIntent().getExtras();
-        name = findViewById(R.id.nameUserText);
         String s = extras.getString("nickKey");
+        */
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String s = prefs.getString("nickKey", "Unknown");
+        name = findViewById(R.id.nameUserText);
         name.setText(s);
         nick = findViewById(R.id.nomLabel);
         nick.setText(s);
@@ -61,10 +65,14 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         avatar = (ImageButton) findViewById(R.id.imageButtonAva);
         avatar.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0) {
-                Intent intent = new Intent(getApplicationContext(), PhotoSelectorDialogOnline.class);
+                Intent intent = new Intent(getApplicationContext(), SelectAvatarOnline.class);
                 startActivity(intent);
+
+                //avatar.setImageResource(getResources().getIdentifier("ava"+ intent.getExtras().getString("indice"),"drawable","comm.app"));
                 //String uriString = preferences.getString(AVATAR,"android.resource://trabajo.sdm.dixit/R.drawable.ava" + indice);
                 //avatar.setImageURI(Uri.parse(uriString));
+                //Log.e("INDICE","onClick: "+intent.getExtras().getString("indice"));
+
             }
         });
 
@@ -75,20 +83,21 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == Activity.RESULT_OK){
+            Log.e("INDICE","onActivityResult : "+data.getExtras().getString("indice"));
+            avatar.setImageResource(getResources().getIdentifier("ava"+data.getExtras().getInt("indice"),"drawable","comm.app"));
 
-            //String uri = "@drawable/ava" + data.getExtras().getString("indice");
-            //int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-            //Drawable imagen = ContextCompat.getDrawable(getApplicationContext(), imageResource);
-
-            String uriString = preferences.getString(AVATAR,"android.resource://trabajo.sdm.dixit/R.drawable.ava" + data.getExtras().getString("indice"));
-            avatar.setImageURI(Uri.parse(uriString));
-            //avatar.setImageDrawable(imagen);
-            //String uriString = preferences.getString(AVATAR,"android.resource://trabajo.sdm.dixit/R.drawable.ava" + data.getExtras().getString("indice"));
-            //avatar.setImageURI(Uri.parse(uriString));
         }
     }
 
     public void cambiarPass() {
+
+    }
+
+    public void iniciarPartida(){
+
+    }
+
+    public void buscarPartida(){
 
     }
 
@@ -98,10 +107,10 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
                 cambiarPass();
                 break;
             case R.id.bNewGame :
-                //iniciarPartida();
+                iniciarPartida();
                 break;
             case R.id.bSearchGame :
-                //buscarPartida();
+                buscarPartida();
                 break;
         }
     }

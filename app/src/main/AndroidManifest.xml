@@ -121,7 +121,7 @@
         </activity>
 
 
-        <activity android:name=".Activities.PhotoSelectorDialog"
+        <activity android:name=".Activities.SelectAvatarSettings"
             android:label="@string/TituloPartida"
             android:parentActivityName=".Activities.SettingsActivity">
             <meta-data
@@ -129,12 +129,20 @@
                 android:value=".Activities.SettingsActivity" />
         </activity>
 
-        <activity android:name=".Activities.PhotoSelectorDialogOnline"
+        <activity android:name=".Activities.SelectAvatarOnline"
             android:label="@string/TituloPartida"
             android:parentActivityName=".Activities.UserActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.UserActivity" />
+        </activity>
+
+        <activity android:name=".Activities.SelectReversoBaraja"
+            android:label="@string/TituloPartida"
+            android:parentActivityName=".Activities.SettingsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.SettingsActivity" />
         </activity>
     </application>
 

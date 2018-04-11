@@ -2,7 +2,9 @@ package trabajo.sdm.dixit.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -104,10 +106,20 @@ public class OnlineActivity extends AppCompatActivity implements View.OnClickLis
 
                             Toast.makeText(OnlineActivity.this,"Se ha registrado el usuario "+ nick,Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(OnlineActivity.this,UserActivity.class);
+                            /*
                             Bundle bolsa = new Bundle();
                             bolsa.putString("nickKey",nick);
                             intent.putExtras(bolsa);
-                            intent.putExtra("jugador",jugador);
+                            */
+                            //intent.putExtra("jugador",jugador);
+
+                            //Guardamos en sharedpreferences el nick del usuario para recuperarlo
+
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString("nickKey", nick);
+                            editor.apply();
+
                             startActivity(intent);
                             //setContentView(R.layout.activity_user);
                         }else{

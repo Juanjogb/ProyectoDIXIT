@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import trabajo.sdm.dixit.R;
 
-public class PhotoSelectorDialog extends AppCompatActivity {
+public class SelectAvatarOnline extends AppCompatActivity {
 
     private EditText mEditText;
     private Button camara, galeria,cancel;
@@ -105,14 +105,13 @@ public class PhotoSelectorDialog extends AppCompatActivity {
     }
 
     public void selectAvatar(int indice){
-        String aux = "" + indice;
-        Intent volver = new Intent(getApplicationContext(),SettingsActivity.class);
+        Intent volver = new Intent(getApplicationContext(),UserActivity.class);
         Bundle bolsa = new Bundle();
-        bolsa.putString("indice",aux);
+        bolsa.putInt("indice",indice);
         volver.putExtras(bolsa);
         setResult(RESULT_OK,volver);
         startActivity(volver);
-        finish();
+        //finish();
     }
 
 

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <ImageButton
+        android:id="@+id/rev_orig"
+        android:layout_width="85dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/reverso_original"
+        android:onClick="onClick"
+        android:scaleType="fitXY"
+        android:src="@drawable/reverso_original"
+        app:layout_constraintEnd_toStartOf="@+id/rev_rojo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/rev_rojo"
+        android:layout_width="85dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/reverso_rojo"
+        android:scaleType="fitXY"
+        android:onClick="onClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reverso_rojo"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/rev_verde"
+        android:layout_width="85dp"
+        android:layout_height="125dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/reverso_verde"
+        android:scaleType="fitXY"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rev_mecanico"
+        app:srcCompat="@drawable/reverso_verde"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/rev_azul"
+        android:layout_width="85dp"
+        android:layout_height="125dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/reverso_azul"
+        android:scaleType="fitXY"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rev_mecanico"
+        app:srcCompat="@drawable/reverso_azul"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/rev_mecanico"
+        android:layout_width="85dp"
+        android:layout_height="125dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/reverso_mecanico"
+        android:onClick="onClick"
+        android:scaleType="fitXY"
+        android:src="@drawable/reverso_mecanico"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rev_orig"
+        app:layout_constraintVertical_bias="0.097"
+        tools:ignore="ContentDescription" />
+</android.support.constraint.ConstraintLayout>
