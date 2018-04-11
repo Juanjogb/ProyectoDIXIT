@@ -30,7 +30,7 @@ public class PartidaActivity extends AppCompatActivity {
         play = (Button) findViewById(R.id.bPlay);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference partidaRef = database.getReference(FirebaseReferences.PARTIDAS_REFERENCE);
+        final DatabaseReference partidaRef = database.getReference(FirebaseReferences.DIXIT_REFERENCE);
 
 
         play.setOnClickListener(new View.OnClickListener() {
